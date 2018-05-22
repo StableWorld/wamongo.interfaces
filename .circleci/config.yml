@@ -7,7 +7,7 @@ jobs:
   build-interfaces:
     docker:
       - image: library/node:9.11
-    working_directory: ~/repo/interfaces
+    working_directory: ~/repo
 
     steps:
       - checkout:
@@ -24,14 +24,14 @@ jobs:
       - run: yarn lint
       - run: bash ~/repo/.circleci/set-version.sh
       - run: yarn pack
-      - run: mkdir interfaces-artifacts; mv  *.tgz interfaces-artifacts
+      - run: mkdir artifacts; mv  *.tgz artifacts
       - store_artifacts:
-          path: ~/repo/interfaces/interfaces-artifacts
+          path: ~/repo/artifacts
       - persist_to_workspace:
-          root: ~/repo/interfaces
+          root: ~/repo
           # Must be relative path from root
           paths:
-            - interfaces-artifacts
+            - artifacts
 
   publish-interfaces:
     docker:
@@ -42,7 +42,7 @@ jobs:
           # Must be absolute path or relative path from working_directory
           at: /tmp/workspace
       - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-      - run: npm publish /tmp/workspace/interfaces-artifacts/*.tgz --access public
+      - run: npm publish /tmp/workspace/artifacts/*.tgz --access public
 
 workflows:
   version: 2
