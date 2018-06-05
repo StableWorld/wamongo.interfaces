@@ -6,7 +6,7 @@ export type OPS = (
   'updateOne' | 'updateMany' |
   'findOne' | 'find' | 'findOneAndUpdate' | 'findOneAndDelete' |
   'deleteOne' | 'deleteMany' |
-   'count' |
+  'count' |
   'unwatch' | 'watchQuery'
 );
 
@@ -74,4 +74,9 @@ export type LoginResponse = {
 export type LogoutResponse = {
   logoutOk: true,
   error?: ErrorType,
+};
+
+export type TokenData = {
+    u: string,
+    dbName: string,
 };
