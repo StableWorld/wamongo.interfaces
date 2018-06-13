@@ -27,6 +27,44 @@ const loginSchema = {
   },
 };
 
+const resetPasswordSchema = {
+  type: 'object',
+  properties: {
+    newPassword: {
+      type: 'string',
+      minLength: 1,
+      required: true,
+    },
+    token: {
+      type: 'string',
+      minLength: 1,
+      required: true,
+    },
+  },
+};
+
+const forgotPasswordSchema = {
+  type: 'object',
+  properties: {
+    email: {
+      type: 'string',
+      minLength: 1,
+      required: true,
+    },
+    dbName: {
+      type: 'string',
+      minLength: 3,
+      required: true,
+      pattern: '^[^_]\\w*',
+    },
+    dbID: {
+      type: 'string',
+      minLength: 3,
+      required: true,
+    },
+  },
+};
+
 const registerSchema = {
   type: 'object',
   properties: {
@@ -74,4 +112,6 @@ module.exports = {
   loginSchema,
   refreshSchema,
   registerSchema,
+  forgotPasswordSchema,
+  resetPasswordSchema,
 };

@@ -71,6 +71,17 @@ export type LoginResponse = {
   error?: ErrorType,
 };
 
+export type ForgotPasswordResponse = {
+  forgotPasswordOk: true,
+  dbName: string,
+  error?: ErrorType,
+};
+export type ResetPasswordResponse = {
+  resetPasswordOk: true,
+  dbName: string,
+  error?: ErrorType,
+};
+
 export type LogoutResponse = {
   logoutOk: true,
   error?: ErrorType,
