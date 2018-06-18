@@ -13,17 +13,6 @@ const loginSchema = {
       minLength: 1,
       required: true,
     },
-    dbName: {
-      type: 'string',
-      minLength: 3,
-      required: true,
-      pattern: '^[^_]\\w*',
-    },
-    dbID: {
-      type: 'string',
-      minLength: 3,
-      required: true,
-    },
   },
 };
 
@@ -51,17 +40,6 @@ const forgotPasswordSchema = {
       minLength: 1,
       required: true,
     },
-    dbName: {
-      type: 'string',
-      minLength: 3,
-      required: true,
-      pattern: '^[^_]\\w*',
-    },
-    dbID: {
-      type: 'string',
-      minLength: 3,
-      required: true,
-    },
   },
 };
 
@@ -77,35 +55,12 @@ const registerSchema = {
       minLength: 6,
       required: true,
     },
-    dbName: {
-      type: 'string',
-      minLength: 3,
-      required: true,
-      pattern: '^[^_]\\w*',
-    },
-    dbID: {
-      type: 'string',
-      minLength: 3,
-      required: true,
-    },
   },
 };
 
 const refreshSchema = {
   type: 'object',
-  properties: {
-    dbName: {
-      type: 'string',
-      minLength: 3,
-      required: true,
-      pattern: '^[^_]\\w*',
-    },
-    dbID: {
-      type: 'string',
-      minLength: 3,
-      required: true,
-    },
-  },
+  properties: { },
 };
 
 module.exports = {
