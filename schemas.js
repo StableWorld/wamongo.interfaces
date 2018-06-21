@@ -60,7 +60,40 @@ const registerSchema = {
 
 const refreshSchema = {
   type: 'object',
-  properties: { },
+  properties: {
+    additionalProperties: false,
+  },
+};
+
+const rulesSchema = {
+  id: 'RulesType',
+  type: 'object',
+  properties: {
+    rules: {
+      type: 'object',
+      required: true,
+      patternProperties: {
+        '^\\w*$': {
+          anyOf: [
+            { type: 'string' },
+            { type: 'boolean' },
+            {
+              type: 'object',
+              properties: {
+                read: { anyOf: [{ type: 'string' }, { type: 'boolean' }] },
+                write: { anyOf: [{ type: 'string' }, { type: 'boolean' }] },
+                insert: { anyOf: [{ type: 'string' }, { type: 'boolean' }] },
+                del: { anyOf: [{ type: 'string' }, { type: 'boolean' }] },
+              },
+              additionalProperties: false,
+            },
+          ],
+        },
+        additionalProperties: false,
+      },
+    },
+  },
+  additionalProperties: false,
 };
 
 module.exports = {
@@ -69,4 +102,5 @@ module.exports = {
   registerSchema,
   forgotPasswordSchema,
   resetPasswordSchema,
+  rulesSchema,
 };

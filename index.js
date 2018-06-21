@@ -1,4 +1,5 @@
 // @flow
+import { ObjectId } from 'bson';
 
 // ----
 export type OPS = (
@@ -76,6 +77,7 @@ export type ForgotPasswordResponse = {
   dbName: string,
   error?: ErrorType,
 };
+
 export type ResetPasswordResponse = {
   resetPasswordOk: true,
   dbName: string,
@@ -91,3 +93,35 @@ export type TokenData = {
     u: string,
     dbName: string,
 };
+
+
+export type RulesType = {
+  rules?: { [key: any]: string | boolean | {
+      read?: string | boolean;
+      write?: string | boolean;
+      create?: string | boolean;
+      del?: string | boolean;
+    };
+  };
+};
+
+
+export type ProjectType = {
+  _id: string,
+  created: any,
+  lastModified: any,
+  dbName: string,
+  ownerId: ObjectId,
+  extra: Object,
+  anonymousAccess: boolean,
+  allowedDomains: Array<string>,
+  rules: RulesType,
+};
+
+export type ProjectList = Array<{
+  _id: string,
+  dbName: string,
+  ownerId: ObjectId,
+  anonymousAccess: boolean,
+  allowedDomains: Array<string>,
+}>;

@@ -209,6 +209,10 @@ brace-expansion@^1.1.7:
     balanced-match "^1.0.0"
     concat-map "0.0.1"
 
+bson@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/bson/-/bson-3.0.0.tgz#2521fe6a9b88f3af155c27359a3847a80d50237b"
+
 buffer-from@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/buffer-from/-/buffer-from-1.0.0.tgz#4cb8832d23612589b0406e9e2956c17f06fdf531"
